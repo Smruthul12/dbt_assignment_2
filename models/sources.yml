@@ -1,0 +1,65 @@
+version: 2
+
+sources:
+  - name: airbnb
+    description: "Source data for Airbnb listings"
+    database: airbnb     # Change this if your database is named differently
+    schema: raw   # Adjust if your schema differs
+    tables:
+      - name: RAW_LISTINGS
+        description: "Raw Airbnb listings data"
+        columns:
+          - name: id
+            description: "Unique identifier for the listing"
+
+          - name: name
+            description: "Name of the listing"
+
+          - name: host_id
+            description: "Unique identifier for the host"
+
+          - name: host_name
+            description: "Name of the host"
+
+          - name: neighbourhood_group
+            description: "Broad neighbourhood group"
+
+          - name: neighbourhood
+            description: "Specific neighbourhood"
+
+          - name: latitude
+            description: "Latitude of the listing location"
+
+          - name: longitude
+            description: "Longitude of the listing location"
+
+          - name: room_type
+            description: "Type of room available (Private, Shared, etc.)"
+
+          - name: price
+            description: "Price per night"
+
+          - name: minimum_nights
+            description: "Minimum nights required for booking"
+
+          - name: number_of_reviews
+            description: "Total number of reviews for the listing"
+
+          - name: last_review
+            description: "Date of the last review"
+
+          - name: reviews_per_month
+            description: "Average number of reviews per month"
+
+          - name: calculated_host_listings_count
+            description: "Number of listings owned by the host"
+
+          - name: availability_365
+            description: "Number of days available in a year"
+
+          - name: number_of_reviews_ltm
+            description: "Number of reviews in the last 12 months"
+
+          - name: license
+            description: "License information for the listing"
+

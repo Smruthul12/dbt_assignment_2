@@ -1,0 +1,100 @@
+models:
+  - name: listings_cleansed
+    description: The 'listings_cleansed' model is a cleaned version of the 'src_listings' table from the 'AIRBNB.DEV' database. It contains information about Airbnb listings, including the listing ID, name, host ID and name, price, neighbourhood, geographical coordinates (latitude and longitude), room type, minimum nights required for booking, number of reviews, date of the last review, reviews per month, the calculated count of the host's listings, availability over the year, and the number of reviews in the last twelve months. The model handles missing values by replacing null host names with 'Unknown', null prices with 0, null last review dates with '1900-01-01', and null reviews per month with 0.
+    columns:
+      - name: listing_id
+        description: Unique identifier for each listing. This is a primary key.
+        data_type: number
+        tests:
+          - not_null
+          - unique
+
+      - name: listing_name
+        description: The name of the listing as provided by the host.
+        data_type: varchar
+        tests:
+          - not_null
+
+      - name: host_id
+        description: Unique identifier for each host. This is a foreign key that can be used to join with the hosts table.
+        data_type: number
+        tests:
+          - not_null
+
+      - name: host_name
+        description: The name of the host for the Airbnb listing. If the host name is not provided, it is replaced with 'Unknown'.
+        data_type: varchar
+        tests:
+          - not_null
+
+      - name: price
+        description: The price of the Airbnb listing. If the price is not provided, it is replaced with 0.
+        data_type: number
+        tests:
+          - not_null
+
+      - name: neighbourhood
+        description: The neighbourhood where the Airbnb listing is located.
+        data_type: varchar
+        tests:
+          - not_null
+
+      - name: latitude
+        description: This column represents the latitude of the listing's location. It is a numerical value that ranges from -90 to 90. The latitude is a measure of a location's distance north or south of the equator.
+        data_type: float
+        tests:
+          - not_null
+
+      - name: longitude
+        description: This column represents the longitude of the listing's location. It is a numerical value that ranges from -180 to 180. The longitude is a measure of a location's distance east or west of the prime meridian (which passes through Greenwich, London).
+        data_type: float
+        tests:
+          - not_null
+
+      - name: room_type
+        description: This column represents the type of room that is being listed. It is a categorical value that can take on values such as 'Entire home/apt', 'Private room', or 'Shared room'. This gives potential renters an idea of the privacy and space they can expect from the listing.
+        data_type: varchar
+        tests:
+          - not_null
+
+      - name: minimum_nights
+        description: The minimum number of nights a guest can book a stay for in the listing. This is a numeric field.
+        data_type: number
+        tests:
+          - not_null
+
+      - name: number_of_reviews
+        description: The total number of reviews that the listing has received. This is a numeric field.
+        data_type: number
+        tests:
+          - not_null
+
+      - name: last_review
+        description: The date of the most recent review for the listing. If no reviews have been made, the date is set to '1900-01-01'. This is a date field.
+        data_type: date
+        tests:
+          - not_null
+
+      - name: reviews_per_month
+        description: This column represents the average number of reviews received by a listing per month. If no reviews have been received, the value is set to 0.
+        data_type: float
+        tests:
+          - not_null
+
+      - name: calculated_host_listings_count
+        description: This column represents the total number of listings associated with the same host. It is calculated by counting all the listings that have the same host_id.
+        data_type: number
+        tests:
+          - not_null
+
+      - name: availability_365
+        description: This column represents the number of days in a year when the listing is available for booking. The value ranges from 0 to 365, with 0 indicating that the listing is not available at all and 365 indicating that the listing is available throughout the year.
+        data_type: number
+        tests:
+          - not_null
+          
+      - name: number_of_reviews_ltm
+        description: This column represents the number of reviews that the listing has received in the last twelve months.
+        data_type: number
+        tests:
+          - not_null

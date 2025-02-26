@@ -1,0 +1,67 @@
+models:
+  - name: src_listings
+    description: "The src_listings model is a transformation of the raw_listings table from the airbnb.raw schema. It includes the following columns: listing_id, listing_name, host_id, room_type, price_str, and minimum_nights. The listing_id and listing_name are derived from the id and name columns of the raw_listings table respectively. The price_str column is derived from the price column of the raw_listings table. The rest of the columns are directly taken from the raw_listings table without any transformation."
+    columns:
+      - name: listing_id
+        description: A unique identifier for each listing. This is a numeric field.
+        data_type: number
+
+      - name: listing_name
+        description: The name of the listing as provided by the host. This is a string field.
+        data_type: varchar
+
+      - name: host_id
+        description: A unique identifier for each host. This is a numeric field.
+        data_type: number
+
+      - name: room_type
+        description: This column represents the type of room that is being listed on Airbnb. It is a varchar type data, which means it can contain alphanumeric characters and symbols.
+        data_type: varchar
+
+      - name: price
+        description: This column represents the price of the listing. It is a numeric value.
+        data_type: number
+
+      - name: minimum_nights
+        description: The minimum number of nights a guest can book a stay for in the listing. This is a numeric field.
+        data_type: number
+
+      - name: host_name
+        description: The name of the host for the Airbnb listing.
+        data_type: varchar
+
+      - name: neighbourhood
+        description: The neighbourhood where the Airbnb listing is located.
+        data_type: varchar
+
+      - name: latitude
+        description: This column represents the latitude of the Airbnb listing. It is a float type data, which means it can contain decimal points.
+        data_type: float
+
+      - name: longitude
+        description: This column represents the longitude of the Airbnb listing. Similar to latitude, it is also a float type data.
+        data_type: float
+
+      - name: number_of_reviews
+        description: The total number of reviews that the listing has received. This is a numeric field.
+        data_type: number
+
+      - name: last_review
+        description: The date of the most recent review that the listing has received. This is a date field.
+        data_type: date
+
+      - name: reviews_per_month
+        description: This column represents the average number of reviews received by the listing per month. It is a float type data.
+        data_type: float
+
+      - name: calculated_host_listings_count
+        description: This column represents the total number of listings that the host has on Airbnb. It is a number type data.
+        data_type: number
+
+      - name: availability_365
+        description: This column represents the number of days in a year that the listing is available for booking. It is a number type data.
+        data_type: number
+        
+      - name: number_of_reviews_ltm
+        description: This column represents the number of reviews that the listing has received in the last twelve months. It is a numeric field.
+        data_type: number
